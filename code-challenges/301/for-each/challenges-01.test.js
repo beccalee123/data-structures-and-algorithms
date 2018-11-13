@@ -33,11 +33,11 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 }
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  
 }
 
 /* ------------------------------------------------------------------------------------------------
