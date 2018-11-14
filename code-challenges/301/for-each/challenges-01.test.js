@@ -9,11 +9,11 @@ Then, write a function named speaker that takes in a string and a callback funct
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  return word.toUpperCase();
 }
 
 const speaker = (message, callback) => {
-  // Solution code here...
+  return message.toUpperCase(callback);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,13 +31,14 @@ Within the addNumbers function, invoke the callback function as many times as ne
 
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
-
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 }
-
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for (let i = times; i > 0; i--) {
+    callback(arr, num);
+  }
+  return arr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,12 +53,18 @@ Then, write a function named removeElements that takes in an array and a callbac
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
+//the two code blocks below don't work yet, but I think they're close!  
 const removeOne = (num, arr) => {
-  // Solution code here...
+  if (num % 3 === 2) {
+    arr.pop
+  }
 }
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    callback(num, arr);
+  }
+  return arr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,8 +73,11 @@ CHALLENGE 4
 Write a function named removeWithForEach that produces the same output as challenge 3, but uses forEach.
 ------------------------------------------------------------------------------------------------ */
 
+//I... don't think this works. But I'm well over the 2 hour mark for trying on this, so onto lab! Will hopefully revisit later.
 const removeWithForEach = (arr, callback) => {
-  // Solution code here...
+  forEach( element => {
+    callback(num, arr)
+  })
 }
 
 /* ------------------------------------------------------------------------------------------------
