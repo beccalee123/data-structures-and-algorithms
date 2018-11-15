@@ -73,6 +73,17 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   // Solution code here...
+  return arr.sort( (a, b) => {
+    a = (a.toString()).length;
+    b = (b.toString()).length;
+    if (a < b) {
+      return -1;
+    }
+    if (a > b) {
+      return 1;
+    }
+    return 0;
+  });
 };
 
 /*-----------------------------------------------------------------------------------------------
