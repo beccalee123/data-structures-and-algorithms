@@ -114,7 +114,7 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   for(let i = 0; i < gruffaloCrumble.steps.length; i++){
-    result.push(gruffaloCrumble.steps[i].split(' ', 1));
+    result.push(gruffaloCrumble.steps[i].split(' ', 1)[0]);
   }
   return result;
 }
