@@ -75,16 +75,14 @@ const gruffaloCrumble = {
 }
 
 
-const listFoods = (recipe) => {
+const listFoods = (gruffaloCrumble) => {
   let result = [];
   for(let i = 0; i < gruffaloCrumble.ingredients.length; i++){
-    result.push(gruffaloCrumble.ingredients[i].slice(8));
+    result.push(gruffaloCrumble.ingredients[i].slice(gruffaloCrumble.ingredients[i].indexOf(' ', 3)+1));
   }
   console.log(result);
-  console.log(result[0].slice(7));
   return result;
 }
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
