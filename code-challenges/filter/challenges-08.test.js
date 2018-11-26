@@ -23,9 +23,7 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 ------------------------------------------------------------------------------------------------ */
 
 
-const filterStringsWithVowels = (arr) => {
-  // Solution code here...
-};
+const filterStringsWithVowels = (arr) => arr.filter((word) => word.match(/[aeiou]/i));
 
 
 /* ------------------------------------------------------------------------------------------------
