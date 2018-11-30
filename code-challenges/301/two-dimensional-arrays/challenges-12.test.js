@@ -75,7 +75,11 @@ const errands = [
 ]
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let itemArray = [];
+  for(let i=0; i < errands.length; i += 1) {
+    itemArray.push(errands[i].items[1]);
+  }
+  return itemArray[2];
 }
 
 /* ------------------------------------------------------------------------------------------------
