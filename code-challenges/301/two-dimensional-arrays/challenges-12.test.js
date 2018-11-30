@@ -31,8 +31,8 @@ const grandTotal = (stores) => {
     }
     hourlyCookies.push(totalCounter);
     console.log('calculation: ' + hourlyCookies[i]);
-    return hourlyCookies;
   }
+  return hourlyCookies;
 }
 
 /* ------------------------------------------------------------------------------------------------
