@@ -1,0 +1,23 @@
+{
+  "name": "data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "Code challenges repo for Code Fellows",
+  "main": "jest.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beccalee123/data-structures-and-algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beccalee123/data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/beccalee123/data-structures-and-algorithms#readme",
+  "dependencies": {
+    "jest": "^23.6.0"
+  }
+}
