@@ -19,5 +19,6 @@
   "homepage": "https://github.com/beccalee123/data-structures-and-algorithms#readme",
   "dependencies": {
     "jest": "^23.6.0"
-  }
+  },
+  "devDependencies": {}
 }
