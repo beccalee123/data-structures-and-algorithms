@@ -16,4 +16,4 @@ Write a function called reverseArray which takes an array as an argument. Withou
 The photo in the solution below shows what we landed on together.
 
 ## Solution
-![Reverse and Array Whiteboard](/assets/arrayReverse.JPG)
+![Reverse and Array Whiteboard](./assets/arrayReverse.JPG)
