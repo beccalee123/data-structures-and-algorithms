@@ -2,6 +2,8 @@
 
 const util = require('util');
 
+
+//Node class
 class Node {
   constructor(value) {
     this.value = value;
@@ -9,10 +11,12 @@ class Node {
   }
 }
 
+// Linkedlist class
 class LinkedList {
   constructor(){
     this.head = null;
   }
+  //adds a new node with that value to the head of the list
   insert(value){
     let node = new Node(value);
     if(! this.head){
@@ -25,15 +29,37 @@ class LinkedList {
     }
     current.next = node;
   }
+
+  //includes method, which returns a boolean for whether or not an item exists in the list
+  includes(value){
+    let current = this.head;
+    while(current !== null){
+      if(value === current.value){
+        console.log(true);
+      } else {
+        current = current.next;
+      }
+    } console.log(false);
+  } 
+
+  //Define a method called print which takes in no arguments and outputs all of the current Node values in the Linked List.
+  print(){
+    console.log(util.inspect(list, {depth:10}));
+  }
 }
 
+
+
 let list = new LinkedList();
-list.add('Buddy the Cat');
-list.add('Hank the Cat');
-list.add('Leo the Dog');
-list.add('Poppy the Dog');
+//adds list items
+list.insert('Buddy the Cat');
+list.insert('Hank the Cat');
+list.insert('Leo the Dog');
+list.insert('Poppy the Dog');
 
-console.log(util.inspect(list, {depth:10}));
+//prints list
+list.print();
 
-
+// includes item method, returns true/false
+list.includes('Leo the Cat');
 
