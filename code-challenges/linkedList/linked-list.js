@@ -13,38 +13,41 @@ class Node {
 
 // Linkedlist class
 class LinkedList {
-  constructor(){
+  constructor() {
     this.head = null;
   }
   //adds a new node with that value to the head of the list
-  insert(value){
+  insert(value) {
     let node = new Node(value);
-    if(! this.head){
+    if (!this.head) {
       this.head = node;
       return;
     }
     let current = this.head;
-    while(current.next){
+    while (current.next) {
       current = current.next;
     }
     current.next = node;
   }
 
   //includes method, which returns a boolean for whether or not an item exists in the list
-  includes(value){
+  includes(value) {
     let current = this.head;
-    while(current !== null){
-      if(value === current.value){
+    while (current !== null) {
+      if (value === current.value) {
         console.log(true);
+        return true;
       } else {
         current = current.next;
       }
     } console.log(false);
-  } 
+    return false;
+  }
 
   //Define a method called print which takes in no arguments and outputs all of the current Node values in the Linked List.
-  print(){
+  print() {
     console.log(util.inspect(list, {depth:10}));
+    return list;
   }
 }
 
@@ -63,3 +66,4 @@ list.print();
 // includes item method, returns true/false
 list.includes('Leo the Cat');
 
+module.exports = { LinkedList };
