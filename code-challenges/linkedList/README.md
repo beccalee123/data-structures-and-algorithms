@@ -14,7 +14,11 @@ Using methods learned in class and in readings, create a linked list and corresp
 
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+I began by reviewing my lecture notes and other resources to get a lay of the land for the concepts around linked lists, since they're a new concept. After that, I went through each item in the challenge and coded it, console logging along the way to ensure things were working as expected. I then spent time writing tests for each method, and updated my original code as needed based on my test assertions. I ran into some issues with my print method after testing and was able to revisit my code and rewrite that method. So the testing paid off!
+
+I believe this code has an O(1) time performance
 
 ## API
-<!-- Description of each method publicly available to your Linked List -->
+- `insert(value)` allows you to add a new item to the linked list
+- `includes(value)` allows you to discover if an item exists in the linked list
+- `print()` allows you to see each item included in the linked list
