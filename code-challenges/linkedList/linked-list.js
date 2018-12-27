@@ -46,8 +46,14 @@ class LinkedList {
 
   //Define a method called print which takes in no arguments and outputs all of the current Node values in the Linked List.
   print() {
-    console.log(util.inspect(list, {depth:10}));
-    return list;
+    let printArr = [];
+    let current = this.head;
+    while(current){
+      printArr.push(current.value);
+      current = current.next;
+    }
+    console.log(printArr);
+    return printArr;
   }
 }
 
