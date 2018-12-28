@@ -42,5 +42,5 @@ Write the following methods for the Linked List class:
 - Once our methods were working we wrote our tests!
 
 ## Solution
-![Linked Lists Insertions Whiteboard 1](./assets/ll_insertsions_1.jpg)
-![Linked Lists Insertions Whiteboard 2](./assets/ll_insertsions_2.jpg)
+![Linked Lists Insertions Whiteboard 1](assets/ll_insertsions_1.jpg)
+![Linked Lists Insertions Whiteboard 2](assets/ll_insertsions_2.jpg)
