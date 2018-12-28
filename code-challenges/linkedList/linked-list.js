@@ -16,19 +16,14 @@ class LinkedList {
   constructor() {
     this.head = null;
   }
-  //adds a new node with that value to the head of the list
-  insert(value) {
+
+  //Insert method that inserts a value as the head
+  insert(value){
     let node = new Node(value);
-    if (!this.head) {
-      this.head = node;
-      return;
-    }
-    let current = this.head;
-    while (current.next) {
-      current = current.next;
-    }
-    current.next = node;
+    node.next = this.head;
+    this.head = node;
   }
+
 
   //includes method, which returns a boolean for whether or not an item exists in the list
   includes(value) {
@@ -55,21 +50,60 @@ class LinkedList {
     console.log(printArr);
     return printArr;
   }
+
+  //adds a new node with that value to the end of the list
+  append(value) {
+    let node = new Node(value);
+    if (!this.head) {
+      this.head = node;
+      return;
+    }
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = node;
+  }
+  
+  insertBefore(value, newValue){
+    let node = new Node(newValue);
+    let current = this.head;
+    let previous = this.head;
+    while (current.value !== value){
+      previous = current;
+      current = current.next;
+    }
+    node.next = current;
+    previous.next = node;
+  }
+
+  insertAfter(value, newValue){
+    let node = new Node(newValue);
+    let current = this.head;
+    while(current.value !== value){
+      current = current.next;
+    }
+    node.next = current.next;
+    current.next = node;
+  }
 }
 
 
 
 let list = new LinkedList();
 //adds list items
-list.insert('Buddy the Cat');
+list.append('Buddy the Cat');
+list.append('Poppy the Dog');
 list.insert('Hank the Cat');
-list.insert('Leo the Dog');
-list.insert('Poppy the Dog');
+list.insertAfter('Buddy the Cat', 'Leo the Dog');
+list.insertBefore('Buddy the Cat', 'Atlas the Dog');
+
+// console.log(util.inspect(list, {depth:10}));
 
 //prints list
-list.print();
+// list.print();
 
 // includes item method, returns true/false
-list.includes('Leo the Cat');
+// list.includes('Leo the Cat');
 
 module.exports = { LinkedList };
