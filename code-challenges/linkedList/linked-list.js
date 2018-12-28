@@ -86,6 +86,29 @@ class LinkedList {
     node.next = current.next;
     current.next = node;
   }
+
+  kFromEnd(k){
+    if(typeof k !== 'number'){
+      return false;
+    }
+    let cnt = 1;
+    let current = this.head;
+    while(current.next){
+      current = current.next;
+      cnt++;
+    }
+    let kpos = cnt - k;
+    if(kpos < 0){
+      return 'k is too big';
+    }
+    cnt = 1;
+    current = this.head;
+    while(cnt < kpos){
+      current = current.next;
+      cnt ++;
+    }
+    return current.value;
+  }
 }
 
 
@@ -97,6 +120,7 @@ list.append('Poppy the Dog');
 list.insert('Hank the Cat');
 list.insertAfter('Buddy the Cat', 'Leo the Dog');
 list.insertBefore('Buddy the Cat', 'Atlas the Dog');
+// console.log(list.kFromEnd(2));
 
 // console.log(util.inspect(list, {depth:10}));
 

@@ -124,3 +124,36 @@ describe('Insert Before method', () => {
     expect(newList.head.next.value).toEqual('Buddy the Cat');
   });
 });
+
+describe('kFromEnd method', () => {
+  it('should return the value of the node that is k from the end', () => {
+    let newList = new list.LinkedList();
+    newList.append('Buddy the Cat');
+    newList.append('Poppy the Dog');
+    newList.append('Hank the Cat');
+    newList.append('Leo the Dog');
+    newList.append('Atlast the Dog');
+    newList.kFromEnd(2);
+    expect(newList.kFromEnd(2)).toEqual('Hank the Cat');
+  });
+
+  it('should return \'k is too big\' if k is greater than the length of the list', () => {
+    let newList = new list.LinkedList();
+    newList.append('Buddy the Cat');
+    newList.append('Poppy the Dog');
+    newList.append('Hank the Cat');
+    newList.append('Leo the Dog');
+    newList.append('Atlast the Dog');
+    newList.kFromEnd(8);
+    expect(newList.kFromEnd(8)).toEqual('k is too big');
+  });
+
+  it('returns falsy if the k value is not a number', () => {
+    let newList = new list.LinkedList();
+    newList.append('Buddy the Cat');
+    newList.append('Poppy the Dog');
+    newList.append('Hank the Cat');
+    let result = newList.kFromEnd('hi');
+    expect(result).toBeFalsy();
+  });
+});

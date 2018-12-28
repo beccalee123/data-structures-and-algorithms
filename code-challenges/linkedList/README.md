@@ -44,3 +44,21 @@ Write the following methods for the Linked List class:
 ## Solution
 ![Image](assets/ll_insertions_1.jpg)
 ![Image](assets/ll_insertions_2.jpg)
+
+# kth from the end of a Linked List - Code Challenge 7
+Continuation of the linked lists repo, paired with Caity Heath.
+
+## Challenge
+Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+Write at least three test assertions for each method that you define.
+
+## Approach & Efficiency
+- We started by outlining the problem domain and drawing out visualization of the input and output.
+- Then we mapped out our algorithm and defined edge cases.
+- We then moved onto our code, and then verification
+- We handled verification a little differently than doing the standard truth table, but it was super helpful for figuring out a few minor updates with our code, which we made on the board.
+- After that, we typed up our code and wrote our tests!
+
+## Solution
+![Image](assets/ll_kth_from_end.JPG)
