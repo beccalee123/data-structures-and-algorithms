@@ -1,4 +1,4 @@
-# Singly Linked List
+# Singly Linked List - Data Structures Lab
 Using methods learned in class and in readings, create a linked list and corresponding functionality
 
 ## Challenge
@@ -22,3 +22,25 @@ I believe this code has an O(1) time performance
 - `insert(value)` allows you to add a new item to the linked list
 - `includes(value)` allows you to discover if an item exists in the linked list
 - `print()` allows you to see each item included in the linked list
+
+
+# Linked List Insertions - Code Challenge 8
+Linked list insertions. Paired with Hannah Ingham and Brent Woodward.
+
+## Challenge
+Write the following methods for the Linked List class:
+
+- `.append(value)` which adds a new node with the given value to the end of the list
+- `.insertBefore(value, newVal)` which add a new node with the given newValue immediately before the first value node
+- `.insertAfter(value, newVal)` which add a new node with the given newValue immediately after the first value node
+- You have access to the Node class and all the properties on the Linked List class.
+
+## Approach & Efficiency
+- We started by outlining the problem domain and drawing visualizations of how the list would change with each method.
+- Then we began to work on algorithms, but found we needed to do more psuedocoding than we originally thought, so we worked through psuedocoding and brainstorming, then wrote the algorithm and code in tandem
+- Once that was done we coded things up, had a number of problems, but helped each other through it as a group.
+- Once our methods were working we wrote our tests!
+
+## Solution
+![Linked Lists Insertions Whiteboard 1](./assets/ll_insertsions_1.jpg)
+![Linked Lists Insertions Whiteboard 2](./assets/ll_insertsions_2.jpg)
