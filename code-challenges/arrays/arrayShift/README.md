@@ -18,4 +18,4 @@ Write a function called `insertShiftArray` which takes in an array and the value
 The photo in the solution below shows what we landed on together.
 
 ## Solution
-![Reverse and Array Whiteboard](/assets/array_shift.JPG)
+![Reverse and Array Whiteboard](../assets/array_shift.JPG)
