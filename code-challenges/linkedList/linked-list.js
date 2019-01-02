@@ -130,4 +130,4 @@ list.insertBefore('Buddy the Cat', 'Atlas the Dog');
 // includes item method, returns true/false
 // list.includes('Leo the Cat');
 
-module.exports = { LinkedList };
+module.exports = { Node, LinkedList };

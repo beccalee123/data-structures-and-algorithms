@@ -62,3 +62,21 @@ Write at least three test assertions for each method that you define.
 
 ## Solution
 ![Image](assets/ll_kth_from_end.JPG)
+
+# kth from the end of a Linked List - Code Challenge 8
+Continuation of the linked lists repo, paired with Siobhan Niess, Jared Pattison, and some extra help from Jake Anderson and Caity Heath.
+
+## Challenge
+Write a function called mergeLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+Write at least three test assertions for each method that you define.
+
+## Approach & Efficiency
+- We started by outlining the problem domain and drawing out visualization of the input and output.
+- Then we started to map out our algorithm.
+- We time boxed ourselves to about an hour on the whiteboard and ran out of time so we decided to move onto coding things on our own.
+- After spending some time working with the ideas we had laid out, I got really stuck and decided to check in with a classmate, Jake, to see if he could help me understand the problem. His explanation was super helpful and made me realize we were over-complicating our attempt.
+- Once I got the code going after Jake's advice, I started writing some tests. I wasn't able to get my test working the way I was expecting, but I was tight on time, so I decided to call it for the day. Happy to have understood the solution, and hoping to revisit testing in the future.
+
+## Solution
+![Image](assets/ll_merge.JPG)
