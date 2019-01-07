@@ -20,25 +20,26 @@ class Stack {
     let node = new Node(value);
     if (!this.top) {
       this.top = node;
-      node.next = null;
     }
     else {
-      this.top = node;
       node.next = this.top;
+      this.top = node;
     }
-    this.top = value;
+    // this.top = value;
   }
 
   // Define a method called pop that does not take any argument, removes the node from the top of the stack, and returns the node.
+
   pop() {
-    if (this.top) {
-      let value = this.top;
-      this.top = this.next;
-      return value;
-    }
-    else {
+    if (!this.top) {
       return false;
     }
+    let current = this.top;
+    if(current.next){
+      this.top = current.next;
+    }
+    current.next = null;
+    return current;
   }
 
   // Define a method called peek that does not take an argument and returns the node located on the top of the stack.
@@ -80,7 +81,8 @@ class Queue {
     }
     else {
       let dequeuedItem = this.front;
-      this.front = this.front.next;
+      this.front = dequeuedItem.next;
+      dequeuedItem.next = null;
       return dequeuedItem;
     }
   }
