@@ -21,3 +21,6 @@ For the BinaryTree methods, I worked primarily off of our class demo, which expl
 #### BinarySearchTree Class
 - `add(value)` adds nodes to the tree in order. It will always set the first node added as the root, and will place nodes of lesser value to the left and nodes of greater value to the right. This is also true of nodes on either side of the root (values less than the root right node will be added to the left, greater than will be added to the right, and so on).
 - `contains(value)` searches the tree for the provided value, and returns a boolean value- true if the value is in the tree, false if it isn't.
+
+## Acknowledgement:
+- heavily referenced this article to understand the code for the add(value) function: https://khan4019.github.io/front-end-Interview-Questions/bst.html
