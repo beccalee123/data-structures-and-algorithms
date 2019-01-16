@@ -2,34 +2,35 @@
 
 const trees = require('../tree.js');
 
-function fizzBuzzer(val) {
-  if (val % 3 === 0 && val % 5 === 0) {
-    val = 'FizzBuzz';
+function fizzBuzzer(node) {
+  if (node.value % 3 === 0 && node.value % 5 === 0) {
+    node.value = 'FizzBuzz';
   }
-  else if (val % 5 === 0) {
-    val = 'Buzz';
+  else if (node.value % 5 === 0) {
+    node.value = 'Buzz';
   }
-  else if (val % 3 === 0) {
-    val = 'Fizz';
+  else if (node.value % 3 === 0) {
+    node.value = 'Fizz';
   }
-  return val;
+  return node.value;
 }
 
 function fizzBuzzTree(tree) {
-  // if (tree.root) {
-  let node = tree.root;
+  if(!tree) {return;}
+  if(!tree.root){return;}
   let traverse = (node) => {
-    let current = node;
     if (node.left) {
-      current = fizzBuzzer(node);
       traverse(node.left);
     }
     if (node.right) {
-      current = fizzBuzzer(node);
       traverse(node.right);
     }
+    node = fizzBuzzer(node);
+    node = fizzBuzzer(node);
+
   };
   traverse(tree.root);
+
 
   return tree;
 }
@@ -48,3 +49,7 @@ b.right = e;
 tree.root = a;
 
 console.log(fizzBuzzTree(tree));
+
+console.log(tree);
+
+module.exports = {fizzBuzzTree, fizzBuzzer};
