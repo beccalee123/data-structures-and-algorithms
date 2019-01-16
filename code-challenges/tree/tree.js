@@ -1,5 +1,7 @@
 'use strict';
 
+const sq = require('../stacksAndQueues/stacks-and-queues.js');
+
 class Node {
   constructor(value){
     this.value = value;
@@ -47,6 +49,17 @@ class BinaryTree{
     };
     _walk(this.root);
     return nodes;
+  }
+
+  breadthFirstTraversal(tree){
+    let q = new sq.Queue();
+    q.enqueue(tree.root);
+    while(q.length){
+      console.log(q.peek().value());
+      let current = q.enqueue();
+      q.enqueue(current.left);
+      q.enqueue(current.right);
+    }
   }
 }
 
@@ -112,6 +125,19 @@ class BinarySearchTree{
   }
 }
 
+let tree1 = new BinaryTree();
+let a = new Node(12);
+let b = new Node(30);
+let c = new Node(6);
+let d = new Node(1);
+let e = new Node(15);
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+tree1.root = a;
+
+console.log(tree1.breadthFirstTraversal(tree1));
 
 
 module.exports = {Node, BinaryTree, BinarySearchTree};

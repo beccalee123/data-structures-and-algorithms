@@ -24,3 +24,17 @@ For the BinaryTree methods, I worked primarily off of our class demo, which expl
 
 ## Acknowledgement:
 - heavily referenced this article to understand the code for the add(value) function: https://khan4019.github.io/front-end-Interview-Questions/bst.html
+
+
+# Code Challenge 17: Breadth-first
+Breadth-first Traversal.
+
+## Challenge
+Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach; print every visited node’s value.
+
+## Approach & Efficiency
+- We remembered that John had mentioned using a while loop and queues in class, so we decided to take that approach. We needed to do a lot of talking and sketching to get our heads around it, but then landed on what felt like a good approach. The code is not yet fully operational, but I don't think it's too far off.
+- The big O for our approach is a time of O(w) and a space of O(n)
+
+## Solution
+![Breadth-first-traversal](./assets/breadth-first-traversal.JPG)
