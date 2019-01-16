@@ -38,3 +38,16 @@ Write a breadth first traversal method which takes a Binary Tree as its unique i
 
 ## Solution
 ![Breadth-first-traversal](./assets/breadth-first-traversal.JPG)
+
+# Code Challenge 18: Breadth-first
+Find the Maximum Value in a Binary Tree
+
+## Challenge
+Write a function called find-maximum-value which takes binary tree as its only input. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+## Approach & Efficiency
+- Since we are getting used to breadth-first traversal, we decided to approach this problem with a breadth-first traversal method that pushes values into an array and resets the max variable to the highest value found using a comparison method.
+- The big O for our approach is a time of O(w) and a space of O(n)
+
+## Solution
+![max tree value](./assets/find-maximum-value-binary-tree.JPG)

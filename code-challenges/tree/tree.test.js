@@ -136,6 +136,54 @@ describe('Binary tree', () => {
 
   });
 
+  describe('maxVal method', () => {
+    it('returns the highest value in the tree', () => {
+      let tree = new trees.BinaryTree();
+      let a = new trees.Node(12);
+      let b = new trees.Node(30);
+      let c = new trees.Node(6);
+      let d = new trees.Node(1);
+      let e = new trees.Node(15);
+      a.left = b;
+      a.right = c;
+      b.left = d;
+      b.right = e;
+      tree.root = a;
+      let result = tree.maxVal();
+      expect(result).toEqual(30);
+    });
+
+    it('does not change the original tree', () => {
+      let tree = new trees.BinaryTree();
+      let a = new trees.Node(12);
+      let b = new trees.Node(30);
+      let c = new trees.Node(6);
+      a.left = b;
+      a.right = c;
+      tree.root = a;
+      let preMax = tree.preOrder();
+      tree.maxVal();
+      let postMax = tree.preOrder();
+      expect(preMax).toEqual(postMax);
+    });
+
+    it('cannot return the highest alphabetical value', () => {
+      let tree = new trees.BinaryTree();
+      let a = new trees.Node('a');
+      let b = new trees.Node('b');
+      let z = new trees.Node('z');
+      let c = new trees.Node('c');
+      let f = new trees.Node('f');
+      a.left = b;
+      a.right = c;
+      b.left = z;
+      b.right = f;
+      tree.root = a;
+      let result = tree.maxVal();
+      expect(result).toEqual(0);
+    });
+  });
+
 });
 
 describe('BinarySearchTree', () => {

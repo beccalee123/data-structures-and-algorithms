@@ -61,6 +61,22 @@ class BinaryTree{
       q.enqueue(current.right);
     }
   }
+
+  maxVal(){
+    let q = [];
+    let max = 0;
+    let val;
+    q.push(this.root);
+    while(q.length !== 0){
+      val = q.shift();
+      if(val.left) {q.push(val.left);}
+      if(val.right) {q.push(val.right);}
+      if(val.value > max){
+        max = val.value;
+      }
+    }
+    return max;
+  }
 }
 
 class BinarySearchTree{
@@ -137,7 +153,6 @@ b.left = d;
 b.right = e;
 tree1.root = a;
 
-console.log(tree1.breadthFirstTraversal(tree1));
-
+// console.log(tree1.maxVal());
 
 module.exports = {Node, BinaryTree, BinarySearchTree};
