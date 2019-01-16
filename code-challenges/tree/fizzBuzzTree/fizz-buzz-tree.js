@@ -51,3 +51,5 @@ tree.root = a;
 console.log(fizzBuzzTree(tree));
 
 console.log(tree);
+
+module.exports = {fizzBuzzTree, fizzBuzzer};
