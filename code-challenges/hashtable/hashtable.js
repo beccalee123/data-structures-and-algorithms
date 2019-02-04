@@ -26,9 +26,11 @@ class Hashtable {
 
   // takes in a key and returns a value from the kvp
   find(key){
-    let hash = this.hash(key);
+    let hash = this.getHash(key);
     if(this.table[hash]){
-      return Object.value;
+      return this.table[hash];
+    } else {
+      return 'key not found';
     }
   }
 
@@ -45,7 +47,12 @@ class Hashtable {
 
   // takes in a key and returns the index in the array where it's stored
   getHash(key){
-    return this.hash(key);
+    let hash = this.hash(key);
+    if(this.table[hash]){
+      return hash;
+    } else {
+      return 'key not found';
+    }
   }
 
 }
@@ -57,8 +64,8 @@ myHash.add('Buddy', 'Cat');
 myHash.add('Hank', 'Cat');
 myHash.add('Leo', 'Dog');
 
-// console.log(myHash.getHash('Hank'));
+console.log(myHash.find('Becca'));
 
-// console.log(util.inspect(myHash, {showHidden: false, depth:null}));
+console.log(util.inspect(myHash, {showHidden: false, depth:null}));
 
 module.exports = Hashtable;

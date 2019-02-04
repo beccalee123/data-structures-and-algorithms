@@ -40,6 +40,25 @@ describe('hashtable', () => {
 
   });
 
+  describe('find', () => {
+    it('returns the value of the specified key', () => {
+      let testHash = new Hashtable(3);
+      testHash.add('Hank', 'Cat');
+      testHash.add('Buddy', 'Meowmer');
+      let result = testHash.find('Buddy');
+      expect(result).toEqual({'head': {'next': null, 'value': {'Buddy': 'Meowmer'}}});
+    });
+
+    it('returns key not found if key is not in the table', () => {
+      let testHash = new Hashtable(3);
+      testHash.add('Hank', 'Cat');
+      testHash.add('Buddy', 'Meowmer');
+      let result = testHash.find('Milo');
+      expect(result).toEqual('key not found');
+    });
+
+  });
+
   describe('contains', () => {
 
     it('returns true if the key is in the hashtable', () => {
@@ -67,6 +86,14 @@ describe('hashtable', () => {
       testHash.add('Buddy', 'Meowmer');
       let result = testHash.getHash('Hank');
       expect(result).toEqual(2);
+    });
+
+    it('returns key not found if the key is not in the hash map', () => {
+      let testHash = new Hashtable(6);
+      testHash.add('Hank', 'Cat');
+      testHash.add('Buddy', 'Meowmer');
+      let result = testHash.getHash('Milo');
+      expect(result).toEqual('key not found');
     });
 
   });
