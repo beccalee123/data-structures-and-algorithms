@@ -1,6 +1,6 @@
 'use strict';
 
-// const ll = require('../linkedList/linked-list.js');
+const ll = require('../linkedList/linked-list.js');
 const util = require('util');
 
 class Hashtable {
@@ -20,8 +20,8 @@ class Hashtable {
   // add an item to the hashtable
   add(key, value){
     let hash = this.hash(key);
-    if(! this.table[hash]) {this.table[hash] = [];}
-    this.table[hash].push({[key]:value});
+    if(! this.table[hash]) {this.table[hash] = new ll.LinkedList();}
+    this.table[hash].insert({[key]:value});
   }
 
   // takes in a key and returns a value from the kvp
@@ -57,7 +57,7 @@ myHash.add('Buddy', 'Cat');
 myHash.add('Hank', 'Cat');
 myHash.add('Leo', 'Dog');
 
-// console.log(myHash.contains('Milo'));
+// console.log(myHash.getHash('Hank'));
 
 // console.log(util.inspect(myHash, {showHidden: false, depth:null}));
 

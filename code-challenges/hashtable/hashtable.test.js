@@ -29,13 +29,13 @@ describe('hashtable', () => {
     it('adds an item to the hashtable', () => {
       let testHash = new Hashtable(1);
       testHash.add('Hank', 'cat');
-      expect(testHash).toEqual({'size': 1, 'table': [[{'Hank': 'cat'}]]});
+      expect(testHash).toEqual({'size': 1, 'table': [{'head': {'next': null, 'value': {'Hank': 'cat'}}}]});
     });
 
     it('can add a key without a value', () => {
       let testHash = new Hashtable(1);
       testHash.add('Hank');
-      expect(testHash).toEqual({'size': 1, 'table': [[{'Hank': undefined}]]});
+      expect(testHash).toEqual({'size': 1, 'table': [{'head': {'next': null, 'value': {'Hank': undefined}}}]});
     });
 
   });
