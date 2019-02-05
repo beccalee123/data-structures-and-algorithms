@@ -24,14 +24,25 @@ class Hashtable {
     this.table[hash].insert({[key]:value});
   }
 
+  search(ll, key){
+    let current = ll.head;
+    let object = null;
+    while(current){
+      if(Object.keys(current.value)[0] === key){
+        return (object = current);
+      }
+      current = current.next;
+    }
+    return object;
+  }
+
   // takes in a key and returns a value from the kvp
   find(key){
     let hash = this.getHash(key);
     if(this.table[hash]){
-      return this.table[hash];
-    } else {
-      return 'key not found';
+      return (this.search(this.table[hash], key) ? this.search(this.table[hash], key).value : 'key not found');
     }
+    return 'key not found';
   }
 
 
@@ -39,10 +50,9 @@ class Hashtable {
   contains(key){
     let hash = this.hash(key);
     if(this.table[hash]){
-      return true;
-    } else {
-      return false;
+      return (this.search(this.table[hash], key) ? true : false);
     }
+    return false;
   }
 
   // takes in a key and returns the index in the array where it's stored
@@ -58,13 +68,13 @@ class Hashtable {
 }
 
 
-// let myHash = new Hashtable(6);
-// myHash.add('Becca', 'Person');
-// myHash.add('Buddy', 'Cat');
-// myHash.add('Hank', 'Cat');
-// myHash.add('Leo', 'Dog');
+let myHash = new Hashtable(6);
+myHash.add('Becca', 'Person');
+myHash.add('Buddy', 'Cat');
+myHash.add('Hank', 'Cat');
+myHash.add('Leo', 'Dog');
 
-// console.log(myHash.find('Becca'));
+console.log(myHash.contains('Becca'));
 
 // console.log(util.inspect(myHash, {showHidden: false, depth:null}));
 

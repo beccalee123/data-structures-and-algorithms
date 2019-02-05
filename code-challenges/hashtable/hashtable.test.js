@@ -46,7 +46,7 @@ describe('hashtable', () => {
       testHash.add('Hank', 'Cat');
       testHash.add('Buddy', 'Meowmer');
       let result = testHash.find('Buddy');
-      expect(result).toEqual({'head': {'next': null, 'value': {'Buddy': 'Meowmer'}}});
+      expect(result).toEqual({'Buddy': 'Meowmer'});
     });
 
     it('returns key not found if key is not in the table', () => {
@@ -54,7 +54,7 @@ describe('hashtable', () => {
       testHash.add('Hank', 'Cat');
       testHash.add('Buddy', 'Meowmer');
       let result = testHash.find('Milo');
-      expect(result).toEqual('key not found');
+      expect(testHash.find('Milo')).toEqual('key not found');
     });
 
   });
