@@ -58,14 +58,14 @@ class Hashtable {
 }
 
 
-let myHash = new Hashtable(6);
-myHash.add('Becca', 'Person');
-myHash.add('Buddy', 'Cat');
-myHash.add('Hank', 'Cat');
-myHash.add('Leo', 'Dog');
+// let myHash = new Hashtable(6);
+// myHash.add('Becca', 'Person');
+// myHash.add('Buddy', 'Cat');
+// myHash.add('Hank', 'Cat');
+// myHash.add('Leo', 'Dog');
 
-console.log(myHash.find('Becca'));
+// console.log(myHash.find('Becca'));
 
-console.log(util.inspect(myHash, {showHidden: false, depth:null}));
+// console.log(util.inspect(myHash, {showHidden: false, depth:null}));
 
 module.exports = Hashtable;
