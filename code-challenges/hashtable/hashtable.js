@@ -74,7 +74,7 @@ myHash.add('Buddy', 'Cat');
 myHash.add('Hank', 'Cat');
 myHash.add('Leo', 'Dog');
 
-console.log(myHash.contains('Becca'));
+// console.log(myHash.contains('Becca'));
 
 // console.log(util.inspect(myHash, {showHidden: false, depth:null}));
 
