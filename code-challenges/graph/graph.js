@@ -72,6 +72,38 @@ class Graph{
     return this.size;
   }
 
+  breadthFirst(startNode) {
+    let queue = [];
+    let visitedNodes = new Set();
+
+    queue.unshift(startNode);
+    visitedNodes.add(startNode);
+
+    if(this.size === 0){
+      return null;
+    }
+
+      
+    while(queue.length){
+      let currentNode = queue.pop();
+      visitedNodes.add(currentNode);
+
+      let neighbors = this.getNeighbors(currentNode);
+
+      for(let neighbor of neighbors){
+        let neighborNode = neighbor.node;
+
+        if(visitedNodes.has(neighborNode))
+          continue;
+        else
+          visitedNodes.add(neighborNode);
+
+        queue.unshift(neighborNode);
+      }
+
+    }
+    return visitedNodes;
+  }
 }
 
 module.exports = {Node, Graph};

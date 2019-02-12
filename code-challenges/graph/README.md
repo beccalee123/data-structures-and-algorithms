@@ -32,3 +32,19 @@ I believe all methods are O(1).
 - `getNodes()` returns all nodes as a collection
 - `getNeighbors()` returns a list of all nodes connected to the given node
 - `getSize()` returns the number of nodes in the graph
+
+
+# Breadth-First Traversal of a Graph
+Implement a breadth-first traversal on a graph.
+
+
+## Challenge
+Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
+
+## Approach & Efficiency
+I believe this would be O(w) since it's a breadth-first traversal.
+
+My initial attempt didn't pan out particularly well- I had forgotten to incorporate traversal of the neighbor nodes, so I didn't get off to a good start. I ended up updating my code to more closely align with the demo Vinicio did on Thursday, and that seemed to do the trick. Tests were added to confirm functionality.
+
+## Solution
+![breadth-first-traversal](breadth-first-graph.js)
