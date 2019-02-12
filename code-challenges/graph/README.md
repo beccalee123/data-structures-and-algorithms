@@ -47,4 +47,4 @@ I believe this would be O(w) since it's a breadth-first traversal.
 My initial attempt didn't pan out particularly well- I had forgotten to incorporate traversal of the neighbor nodes, so I didn't get off to a good start. I ended up updating my code to more closely align with the demo Vinicio did on Thursday, and that seemed to do the trick. Tests were added to confirm functionality.
 
 ## Solution
-![breadth-first-traversal](breadth-first-graph.js)
+![breadth-first-traversal](breadth-first-graph.JPG)
