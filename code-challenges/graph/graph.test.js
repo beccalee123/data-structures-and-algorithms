@@ -64,3 +64,46 @@ describe('Graph', () => {
   });
 
 });
+
+describe('Breadth-first traversal', () => {
+  it('can return all nodes visited in order', () => {
+    let graph = new g.Graph();
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addEdge(2,1);
+    graph.addEdge(3,2);
+    graph.addEdge(1,3);
+    expect(graph.breadthFirst(2)).toBeInstanceOf(Set);
+    expect(graph.breadthFirst(2)).toContain(2, 1, 3);
+  });
+
+  it('can return all nodes visited in order, even if they are made of a variety of value types', () => {
+    let graph = new g.Graph();
+    graph.addNode(1);
+    graph.addNode('hi');
+    graph.addNode(3);
+    graph.addEdge('hi',1);
+    graph.addEdge(3,'hi');
+    graph.addEdge(1,3);
+    expect(graph.breadthFirst('hi')).toBeInstanceOf(Set);
+    expect(graph.breadthFirst('hi')).toContain('hi', 1, 3);
+  });
+
+  it('returns null if there are no nodes in the graph', () => {
+    let graph = new g.Graph();
+    expect(graph.breadthFirst()).toBeNull();
+  });
+
+  it('can return nodes in order if the edges are weighted', () => {
+    let graph = new g.Graph();
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addEdge(2,1, 'hi');
+    graph.addEdge(3,2, 'hello');
+    graph.addEdge(1,3, 'howdy');
+    expect(graph.breadthFirst(2)).toBeInstanceOf(Set);
+    expect(graph.breadthFirst(2)).toContain(2, 1, 3);
+  });
+});
