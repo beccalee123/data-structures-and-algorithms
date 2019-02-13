@@ -11,4 +11,4 @@ We used a recursive function to solve this problem, but it needs some work
 
 
 ## Solution
-![depth-first](depth-first.JPG)
+![depth-first](depthFirst.JPG)
