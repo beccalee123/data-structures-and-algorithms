@@ -45,7 +45,7 @@ Write the following methods for the Linked List class:
 ![Image](assets/ll_insertions_1.jpg)
 ![Image](assets/ll_insertions_2.jpg)
 
-# kth from the end of a Linked List - Code Challenge 7
+# Merge Linked List - Code Challenge 7
 Continuation of the linked lists repo, paired with Caity Heath.
 
 ## Challenge
