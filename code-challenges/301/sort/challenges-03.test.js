@@ -6,7 +6,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  return arr.sort((a, b) => b - a)
+  return arr.sort((a, b) => b - a);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  return arr.sort((a, b) =>  a.price - b.price)
+  return arr.sort((a, b) =>  a.price - b.price);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) =>  a.lastName - b.lastName);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -204,7 +204,7 @@ describe('Testing challenge 5', () => {
     expect(sortByPrice([
       { name: 'Sweatshirt', price: 45 },
       { name: 'Bookmark', price: 2.50 },
-      { name: 'Tote bag', price: 15 }
+      { name: 'Tote bag', price: 15 },
     ])).toStrictEqual([
       { name: 'Bookmark', price: 2.50 },
       { name: 'Tote bag', price: 15 },
@@ -219,7 +219,7 @@ describe('Testing challenge 6', () => {
   test('It should sort numbers by their length', () => {
     expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
     expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
-    expect(sortNumbersByLength([1, 2, 3])).toEqual(expect.arrayContaining([1, 2, 3]))
+    expect(sortNumbersByLength([1, 2, 3])).toEqual(expect.arrayContaining([1, 2, 3]));
   });
 });
 
