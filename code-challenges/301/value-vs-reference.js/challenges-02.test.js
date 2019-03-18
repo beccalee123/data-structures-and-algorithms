@@ -9,9 +9,9 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  str += ' The end.'
+  str += ' The end.';
   return str;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -27,8 +27,8 @@ console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-  arr.push(arr[0])
-}
+  arr.push(arr[0]);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -47,7 +47,7 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 
 const addBirthYearProperty = (obj, year) => {
   obj.yearBorn = year;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -72,7 +72,7 @@ const setStatusAsAuthor = (people) => {
   people.forEach((person, idx) => {
     people[idx].isAuthor = true;
   });
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -91,9 +91,9 @@ console.log(a) prints [1, 2, 3, 4]
 
 const append = (arr1, arr2) => {
   arr2.forEach( (value) => {
-    arr1.push(value)
-  })
-}
+    arr1.push(value);
+  });
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
