@@ -15,7 +15,7 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  for(let i = 0; i <= str.length; i++){
+  for (let i = 0; i <= str.length; i++) {
     result.push(str.slice(i));
   }
   return result;
@@ -71,18 +71,19 @@ const gruffaloCrumble = {
     'Fold together remaining ingredients to make the crisp',
     'Spread the crisp evenly over the gruffalo mixture',
     'Bake for 12-15 hours',
-  ]
-}
+  ],
+};
 
 
 const listFoods = (gruffaloCrumble) => {
   let result = [];
-  for(let i = 0; i < gruffaloCrumble.ingredients.length; i++){
-    result.push(gruffaloCrumble.ingredients[i].slice(gruffaloCrumble.ingredients[i].indexOf(' ', 3)+1));
+  for (let i = 0; i < gruffaloCrumble.ingredients.length; i++) {
+    result.push(gruffaloCrumble.ingredients[i].slice(gruffaloCrumble.ingredients[i].indexOf(' ', 3) + 1));
   }
   console.log(result);
   return result;
-}
+};
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -92,12 +93,12 @@ You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
 const splitFoods = (recipe) => {
-    let result = [];
-    for(let i = 0; i < gruffaloCrumble.ingredients.length; i++){
-      result.push(gruffaloCrumble.ingredients[i].split(' ').slice(2).join(' '));
-    }
-    return result;
-}
+  let result = [];
+  for (let i = 0; i < gruffaloCrumble.ingredients.length; i++) {
+    result.push(gruffaloCrumble.ingredients[i].split(' ').slice(2).join(' '));
+  }
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -111,11 +112,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  for(let i = 0; i < gruffaloCrumble.steps.length; i++){
+  for (let i = 0; i < gruffaloCrumble.steps.length; i++) {
     result.push(gruffaloCrumble.steps[i].split(' ', 1)[0]);
   }
   return result;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -131,7 +132,13 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] % 2 === 0){
+      console.log(arr[i]);
+      arr.splice(i, 1);
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
