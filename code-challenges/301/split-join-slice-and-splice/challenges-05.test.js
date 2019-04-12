@@ -15,7 +15,7 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  for(let i = 0; i <= str.length; i++){
+  for (let i = 0; i <= str.length; i++) {
     result.push(str.slice(i));
   }
   return result;
@@ -71,18 +71,19 @@ const gruffaloCrumble = {
     'Fold together remaining ingredients to make the crisp',
     'Spread the crisp evenly over the gruffalo mixture',
     'Bake for 12-15 hours',
-  ]
-}
+  ],
+};
 
 
 const listFoods = (gruffaloCrumble) => {
   let result = [];
-  for(let i = 0; i < gruffaloCrumble.ingredients.length; i++){
-    result.push(gruffaloCrumble.ingredients[i].slice(gruffaloCrumble.ingredients[i].indexOf(' ', 3)+1));
+  for (let i = 0; i < gruffaloCrumble.ingredients.length; i++) {
+    result.push(gruffaloCrumble.ingredients[i].slice(gruffaloCrumble.ingredients[i].indexOf(' ', 3) + 1));
   }
   console.log(result);
   return result;
-}
+};
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -92,12 +93,12 @@ You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
 const splitFoods = (recipe) => {
-    let result = [];
-    for(let i = 0; i < gruffaloCrumble.ingredients.length; i++){
-      result.push(gruffaloCrumble.ingredients[i].split(' ').slice(2).join(' '));
-    }
-    return result;
-}
+  let result = [];
+  for (let i = 0; i < gruffaloCrumble.ingredients.length; i++) {
+    result.push(gruffaloCrumble.ingredients[i].split(' ').slice(2).join(' '));
+  }
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -111,11 +112,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  for(let i = 0; i < gruffaloCrumble.steps.length; i++){
+  for (let i = 0; i < gruffaloCrumble.steps.length; i++) {
     result.push(gruffaloCrumble.steps[i].split(' ', 1)[0]);
   }
   return result;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -131,7 +132,13 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] % 2 === 0){
+      arr.splice(i, 1);
+      i = 0;
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -150,7 +157,15 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  if(numberOfCharacters >= 0){
+    return str.slice(0, (str.length - numberOfCharacters));
+  }
+  if(numberOfCharacters > str.length){
+    return '';
+  }
+  else{
+    return str;
+  }
 };
 
 
@@ -162,7 +177,11 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+  let newArr = str.split(',');
+  for(let i = 0; i < newArr.length; i++){
+    let num = parseInt(newArr[i]);
+    total += num;
+  }
   return total;
 };
 
@@ -176,7 +195,9 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  let regex = /[aeiou]/g;
+  let newArr = str.split(regex);
+  return newArr.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -190,7 +211,15 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
+  let resultsArr = [];
+  let regex1 = /[aeiou]/g;
+  let regex2 = /[^aeiou]/g;
+  let consArr = str.split(regex1);
+  let vowArr = str.split(regex2);
+  vowArr.sort();
+  resultsArr.push(consArr.join(''));
+  resultsArr.push(vowArr.join(''));
+  return resultsArr;
 };
 
 /* ------------------------------------------------------------------------------------------------

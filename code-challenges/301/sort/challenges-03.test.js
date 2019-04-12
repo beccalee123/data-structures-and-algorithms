@@ -62,7 +62,7 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  return arr.sort((a, b) =>  a.price - b.price);
+  return arr.sort((a, b) => a.price - b.price);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,7 +73,7 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   // Solution code here...
-  return arr.sort( (a, b) => {
+  return arr.sort((a, b) => {
     a = (a.toString()).length;
     b = (b.toString()).length;
     if (a < b) {
@@ -104,15 +104,18 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  return arr.sort((a, b) =>  a.lastName - b.lastName);
+  arr.sort((a, b) => {
+    return a.lastName > b.lastName;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 8
-Write a function named sortPeopleBetter that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names.
-If two people share the same last name, alphabetize on their first name.
-If two people have the same full name, the younger one should come first. Do not worry about capitalization.
------------------------------------------------------------------------------------------------- */
+  CHALLENGE 8
+  Write a function named sortPeopleBetter that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names.
+  If two people share the same last name, alphabetize on their first name.
+  If two people have the same full name, the younger one should come first. Do not worry about capitalization.
+  ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
