@@ -10,7 +10,7 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   let arrNum = arr.reduce( function(accumulator, value, idx){
-    accumulator++ 
+    accumulator++;
     return accumulator;
   },0);
   return arrNum;
@@ -48,7 +48,7 @@ let starWarsData = [{
   skin_color: 'white, blue',
   eye_color: 'red',
   birth_year: '33BBY',
-  gender: 'n/a'
+  gender: 'n/a',
 },
 {
   name: 'Darth Vader',
@@ -58,7 +58,7 @@ let starWarsData = [{
   skin_color: 'white',
   eye_color: 'yellow',
   birth_year: '41.9BBY',
-  gender: 'male'
+  gender: 'male',
 },
 {
   name: 'Leia Organa',
@@ -68,8 +68,8 @@ let starWarsData = [{
   skin_color: 'light',
   eye_color: 'brown',
   birth_year: '19BBY',
-  gender: 'female'
-}]
+  gender: 'female',
+}];
 
 const returnNames = (arr) => {
   let test = arr.reduce( (names, character) => {
@@ -148,7 +148,7 @@ const countNumberOfChildren = (arr) => {
       accumulator = accumulator + value.children.length;
     }
     return accumulator;
-  }, 0)
+  }, 0);
   return arrKids;
 };
 
@@ -161,7 +161,7 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -183,7 +183,7 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
