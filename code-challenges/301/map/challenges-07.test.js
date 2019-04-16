@@ -11,11 +11,11 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  let arr2 = []
+  let arr2 = [];
   for (let i = 0; i < arr.length; i++){
-    let exponent = arr[i]
-    let base = 2
-    arr2.push(Math.pow(base, exponent))
+    let exponent = arr[i];
+    let base = 2;
+    arr2.push(Math.pow(base, exponent));
   }
   return arr2;
 };
@@ -27,9 +27,9 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  let arr2 = []
+  let arr2 = [];
   arr.forEach((value, idx) => {
-    arr2.push(Math.pow(2, arr[idx]))
+    arr2.push(Math.pow(2, arr[idx]));
   });
   return arr2;
 };
@@ -43,7 +43,7 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 const mapTwoToThe = (arr) => {
   const newArr = arr.map( (value) => Math.pow(2, value));
   return newArr;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -71,7 +71,20 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  let resultsArr = arr.map((num) => {
+    if(typeof num !== 'number'){
+      return 'N/A';
+    }
+    else if(num % 2 === 0){
+      return 'even';
+    }
+    else if(num % 2 !== 0){
+      return 'odd';
+    }
+
+
+  });
+  return resultsArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,7 +130,10 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  let abilitiesArr = arr.map((able) => {
+    return able.ability.name;
+  });
+  return abilitiesArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,7 +180,10 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  let statsArr = arr.map((statistic) => {
+    return {name: statistic.stat.name, total: (statistic.effort + statistic.baseStat)};
+  });
+  return statsArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -250,9 +269,9 @@ describe('Testing challenge 6', () => {
 describe('Testing challenge 7', () => {
   test('It should return an array containing objects with name and total values', () => {
     expect(extractStats(snorlaxStats.stats)).toStrictEqual([
-      { name: 'speed', total: 35, },
-      { name: 'special-defense', total: 112, },
-      { name: 'special-attack', total: 74, },
+      { name: 'speed', total: 35 },
+      { name: 'special-defense', total: 112 },
+      { name: 'special-attack', total: 74 },
     ]);
     expect(extractStats(snorlaxStats.stats).length).toStrictEqual(3);
   });

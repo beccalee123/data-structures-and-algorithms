@@ -13,7 +13,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   return Object.keys(courseInfo);
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -27,49 +27,49 @@ let characters = [
     name: 'Eddard',
     spouse: 'Catelyn',
     children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
-    house: 'Stark'
+    house: 'Stark',
   },
   {
     name: 'Jon A.',
     spouse: 'Lysa',
     children: ['Robin'],
-    house: 'Arryn'
+    house: 'Arryn',
   },
   {
     name: 'Cersei',
     spouse: 'Robert',
     children: ['Joffrey', 'Myrcella', 'Tommen'],
-    house: 'Lannister'
+    house: 'Lannister',
   },
   {
     name: 'Daenarys',
     spouse: 'Khal Drogo',
     children: ['Drogon', 'Rhaegal', 'Viserion'],
-    house: 'Targaryen'
+    house: 'Targaryen',
   },
   {
     name: 'Mace',
     spouse: 'Alerie',
     children: ['Margaery', 'Loras'],
-    house: 'Tyrell'
+    house: 'Tyrell',
   },
   {
     name: 'Sansa',
     spouse: 'Tyrion',
     children: [],
-    house: 'Stark'
+    house: 'Stark',
   },
   {
     name: 'Jon S.',
     spouse: null,
     children: [],
-    house: 'Snow'
-  }
-]
+    house: 'Snow',
+  },
+];
 
 const totalCharacters = (arr) => {
   return characters.length;
-}
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -83,7 +83,7 @@ const getHouses = (arr) => {
     houses.push(characters[i].house);
   }  
   return houses;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -101,11 +101,11 @@ const hasChildrenValues = (arr, character) =>{
   let hasChildren;
   Object.values(arr).forEach(person => {
     if (person.name === character){
-      hasChildren = person.children.length > 0 ? true : false
+      hasChildren = person.children.length > 0 ? true : false;
     }
-  })
+  });
   return hasChildren;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -116,8 +116,15 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
-}
+  let hasChildren;
+  for(let i = 0; i < arr.length; i++){
+    // console.log(arr[i].name);
+    if (arr[i].name === character){
+      hasChildren = arr[i].children.length > 0 ? true : false;
+    }
+  }
+  return hasChildren;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -131,9 +138,18 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++){
+    let members = [];
+    members.push(arr[i].name);
+    if(arr[i].spouse !== null){
+      members.push(arr[i].spouse);
+    }
+    let houseName = arr[i].house;
+    let memberNum = members.length + arr[i].children.length;
+    sizes.push({house: houseName, members: memberNum});
+  }
   return sizes;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -155,9 +171,18 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++){
+    let members = [];
+    members.push(arr[i].name);
+    if(arr[i].spouse !== null && !deceasedSpouses.includes(arr[i].spouse)){
+      members.push(arr[i].spouse);
+    }
+    let houseName = arr[i].house;
+    let memberNum = members.length + arr[i].children.length;
+    survivors.push({house: houseName, members: memberNum});
+  }
   return survivors;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS

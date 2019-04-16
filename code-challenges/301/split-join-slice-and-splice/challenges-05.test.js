@@ -80,7 +80,7 @@ const listFoods = (gruffaloCrumble) => {
   for (let i = 0; i < gruffaloCrumble.ingredients.length; i++) {
     result.push(gruffaloCrumble.ingredients[i].slice(gruffaloCrumble.ingredients[i].indexOf(' ', 3) + 1));
   }
-  console.log(result);
+  // console.log(result);
   return result;
 };
 
@@ -211,12 +211,22 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
+  let initArr = str.split('');
   let resultsArr = [];
-  let regex1 = /[aeiou]/g;
-  let regex2 = /[^aeiou]/g;
-  let consArr = str.split(regex1);
-  let vowArr = str.split(regex2);
+  let vowArr = [];
+  let consArr = [];
+  for(let i = 0; i < initArr.length; i++){
+    if(initArr[i] === 'a' | initArr[i] === 'e' | initArr[i] === 'i' | initArr[i] === 'o' | initArr[i] === 'u'){
+      vowArr.push(initArr[i]);
+    }
+    else {
+      consArr.push(initArr[i]);
+    }
+  }
+
   vowArr.sort();
+  // console.log('vowels', vowArr, 'consonants', consArr);
+
   resultsArr.push(consArr.join(''));
   resultsArr.push(vowArr.join(''));
   return resultsArr;
