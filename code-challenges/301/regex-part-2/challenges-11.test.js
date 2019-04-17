@@ -151,7 +151,7 @@ describe('Testing challenge 3', () => {
     expect(validatePhoneNumber('55555555555')).toBeFalsy();
     expect(validatePhoneNumber('55555555555')).toBeFalsy();
     expect(validatePhoneNumber('55_55_5555')).toBeFalsy();
-  })
+  });
 });
 
 describe('Testing challenge 4', () => {

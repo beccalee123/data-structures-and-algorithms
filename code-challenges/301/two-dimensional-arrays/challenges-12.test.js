@@ -26,14 +26,13 @@ const grandTotal = (stores) => {
   let hourlyCookies = [];
   for (let i = 0; i < hoursOpen.length; i++) {
     let totalCounter = 0;
-    for (let j = 0; j < stores.length; j++){
+    for (let j = 0; j < stores.length; j++) {
       totalCounter = totalCounter + stores[j][i];
     }
     hourlyCookies.push(totalCounter);
-    console.log('calculation: ' + hourlyCookies[i]);
   }
   return hourlyCookies;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -47,12 +46,12 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   let hoursObjects = [];
-  hoursObjects.forEach( function(cookieStores){
-    hoursObjects.push(cookieStores[i]= {
-      sales: `sales: ${cookieStores[i][j]}`,
-      time: `time: ${hoursOpen[i]}`
-    })
-  })
+  data.forEach((item, idx) => {
+    hoursObjects.push(item = {
+      sales: `${item} cookies`,
+      time: hoursOpen[idx],
+    });
+  });
   return hoursObjects;
 };
 
@@ -63,24 +62,27 @@ Write a function named howManyTreats that will return the quantity of treats you
 ------------------------------------------------------------------------------------------------ */
 
 const errands = [
-  { store: 'Grocery store',
-    items: [ { name: 'Eggs', quantity: 12 }, { name: 'Milk', quantity: 1 }, { name: 'Apples', quantity: 3 }]
+  {
+    store: 'Grocery store',
+    items: [{ name: 'Eggs', quantity: 12 }, { name: 'Milk', quantity: 1 }, { name: 'Apples', quantity: 3 }],
   },
-  { store: 'Drug store',
-    items: [ { name: 'Toothpaste', quantity: 1 }, { name: 'Toothbrush', quantity: 3 }, { name: 'Mouthwash',quantity: 1 } ]
+  {
+    store: 'Drug store',
+    items: [{ name: 'Toothpaste', quantity: 1 }, { name: 'Toothbrush', quantity: 3 }, { name: 'Mouthwash', quantity: 1 }],
   },
-  { store: 'Pet store',
-    items: [ { name: 'Cans of food', quantity: 8 }, { name: 'Treats', quantity: 24 }, { name: 'Leash', quantity: 1 } ]
-  }
-]
+  {
+    store: 'Pet store',
+    items: [{ name: 'Cans of food', quantity: 8 }, { name: 'Treats', quantity: 24 }, { name: 'Leash', quantity: 1 }],
+  },
+];
 
 const howManyTreats = (arr) => {
   let itemArray = [];
-  for(let i=0; i < errands.length; i += 1) {
+  for (let i = 0; i < errands.length; i += 1) {
     itemArray.push(errands[i].items[1]);
   }
-  return itemArray[2];
-}
+  return itemArray[2].quantity;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -106,7 +108,7 @@ const battleship = (board, row, col) => {
   } else {
     return 'miss';
   }
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -117,8 +119,14 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
-}
+  let product = 1;
+  for(let i = 0; i < numbers.length; i++){
+    for(let j = 0; j < numbers[i].length; j++){
+      product = product * numbers[i][j];
+    }
+  }
+  return product;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -137,8 +145,17 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
-}
+  let avgTemp = 0;
+  let totalDates = 0;
+  for(let i = 0; i < weather.length; i++){
+    for(let j = 0; j < weather[i].length; j++){
+      avgTemp = avgTemp + weather[i][j];
+      totalDates += 1;
+    }
+  }
+  let result = avgTemp / totalDates;
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -158,8 +175,24 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
-}
+  let avgTemp = 0;
+  let totalDates = 0;
+  let lowest;
+  let result = 1000;
+  for(let i = 0; i < weather.length; i++){
+    lowest = avgTemp / totalDates;
+    if(lowest < result){
+      result = lowest;
+    }
+    avgTemp = 0;
+    totalDates = 0;
+    for(let j = 0; j < weather[i].length; j++){
+      avgTemp = avgTemp + weather[i][j];
+      totalDates += 1;
+    }
+  }
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -175,7 +208,7 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -209,7 +242,7 @@ describe('Testing challenge 2', () => {
       { sales: '276 cookies', time: '5 p.m.' },
       { sales: '207 cookies', time: '6 p.m.' },
       { sales: '161 cookies', time: '7 p.m.' },
-      { sales: '169 cookies', time: '8 p.m.' }
+      { sales: '169 cookies', time: '8 p.m.' },
     ]);
 
     expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(hoursOpen.length);
@@ -244,14 +277,14 @@ describe('Testing challenge 4', () => {
 
 describe('Testing challenge 5', () => {
   test('It should multiply all the numbers together', () => {
-    expect(calculateProduct([[1,2], [3,4], [5,6]])).toStrictEqual(720);
+    expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
 
   test('It should return zero if there are any zeroes in the data', () => {
     expect(calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])).toStrictEqual(0);
   });
   test('It should work even if some of the arrays contain no numbers', () => {
-    expect(calculateProduct([[1,2], [], [3,4,5]])).toStrictEqual(120);
+    expect(calculateProduct([[1, 2], [], [3, 4, 5]])).toStrictEqual(120);
   });
 });
 
