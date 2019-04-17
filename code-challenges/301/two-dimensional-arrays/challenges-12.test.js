@@ -175,19 +175,19 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  let avgTemp = 0;
+  let temp = 0;
   let totalDates = 0;
-  let lowest;
+  let avgTemp;
   let result = 1000;
   for(let i = 0; i < weather.length; i++){
-    lowest = avgTemp / totalDates;
-    if(lowest < result){
-      result = lowest;
+    avgTemp = temp / totalDates;
+    if(avgTemp < result){
+      result = avgTemp;
     }
-    avgTemp = 0;
+    temp = 0;
     totalDates = 0;
     for(let j = 0; j < weather[i].length; j++){
-      avgTemp = avgTemp + weather[i][j];
+      temp = temp + weather[i][j];
       totalDates += 1;
     }
   }
@@ -207,7 +207,21 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let arr = str.split('\n');
+  let newArr = [];
+  let finalArr = [];
+  let sums = 0;
+  for(let i = 0; i < arr.length; i++){
+    newArr.push(arr[i].split(','));
+  }
+  for(let j = 0; j < newArr.length; j++){
+    for(let k = 0; k < newArr[j].length; k++){
+      sums += parseInt(newArr[j][k]);
+    }
+    finalArr.push(sums);
+    sums = 0;
+  }
+  return finalArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
