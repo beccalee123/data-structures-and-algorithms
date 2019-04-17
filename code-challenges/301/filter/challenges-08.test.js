@@ -94,7 +94,7 @@ const getStatName = (arr, minBaseStat) => {
   let newArr = [];
   arr.filter((value) => {
     if (value.baseStat > minBaseStat){
-    newArr.push(value.stat.name);
+      newArr.push(value.stat.name);
     }
   });
   return newArr;
@@ -150,7 +150,8 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
+  let noKids = arr.filter((character) => !character.children);
+  return noKids;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -162,7 +163,18 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
-  // Solution code here...
+  let removeNonNums = arr.filter((item) => typeof item === 'number');
+  // console.log(removeNonNums);
+
+  let evenOdd = removeNonNums.map((num) => {
+    if(num % 2 === 0){
+      return 'even';
+    }
+    else {
+      return 'odd';
+    }
+  });
+  return evenOdd;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -195,7 +207,7 @@ describe('Testing challenge 2', () => {
 
   test('It should not contain any words that do not contain vowels', () => {
     expect(filterStringsWithVowels(['gregor','hound','xyz'])).not.toContain('xyz');
-  })
+  });
 });
 
 describe('Testing challenge 3', () => {
@@ -249,7 +261,7 @@ describe('Testing challenge 5', () => {
       {baseStat: 10, stat: {name: 'one'}},
       {baseStat: -85, stat: {name: 'two'}},
       {baseStat: 0, stat: {name: 'three'}},
-      {baseStat: -50, stat: {name: 'four'}}
+      {baseStat: -50, stat: {name: 'four'}},
     ], -60)).toStrictEqual(['one', 'three', 'four']);
   });
 });

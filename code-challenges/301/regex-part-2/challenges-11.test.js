@@ -30,7 +30,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  let regex = /^\w+\.?\w+\@\w+(.com$|.net$|.org$)/g;
+  let regex = /^\w+\.?\w+@\w+(.com$|.net$|.org$)/g;
   return regex.test(email);
 };
 
@@ -56,7 +56,7 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  let regex = /^\(?\d{3}\)?\ ?\-?\d{3}\ ?\-?\d{4}$/g;
+  let regex = /^((\(\d{3}\))|\d{3})-?\s?\d{3}-?\s?\d{4}$/;
   return regex.test(phoneNumber);
 };
 
@@ -70,8 +70,12 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 ------------------------------------------------------------------------------------------------ */
 
 const findTagNames = elements => {
-  // Solution code here...
-}
+  let regex = /\/\b\w*/g;
+  return elements.reduce((accumulator, value) => {
+    accumulator.push(value.match(regex));
+    return accumulator;
+  }, []).reduce((accumulator, value) => accumulator.concat(value));
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -123,7 +127,7 @@ describe('Testing challenge 2', () => {
     expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
     expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
     expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
-  })
+  });
 });
 
 describe('Testing challenge 3', () => {
@@ -147,7 +151,7 @@ describe('Testing challenge 3', () => {
     expect(validatePhoneNumber('55555555555')).toBeFalsy();
     expect(validatePhoneNumber('55555555555')).toBeFalsy();
     expect(validatePhoneNumber('55_55_5555')).toBeFalsy();
-  })
+  });
 });
 
 describe('Testing challenge 4', () => {

@@ -13,13 +13,14 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   return input.reduce((accumulator, value) => {
-      for(let i = 0; i < input.length; i++){
-        if (value === target){
-          accumulator++
-        }
-        return accumulator;
-    }0});
-}
+    for (let i = 0; i < input.length; i++) {
+      if (value === target) {
+        accumulator++;
+      }
+      return accumulator;
+    } 0;
+  });
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -32,11 +33,11 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  let newSum = 0
-  for(let i = 0; i < input.length; i++){
-    newSum + input[i]
+  let newSum = 0;
+  for (let i = 0; i < input.length; i++) {
+    newSum + input[i];
   }
-  return newSum
+  return newSum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,12 +53,12 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
- //let passingNums = input.filter(nums => num % 5);
- //let numsToThePower = []
- //for (let i = 0; i < passingNums.length; i++);
-    //let exponent = passingNums[i]
-    //let base = 3
-    //numsToThePower.push(Math.pow(base, exponent))
+  //let passingNums = input.filter(nums => num % 5);
+  //let numsToThePower = []
+  //for (let i = 0; i < passingNums.length; i++);
+  //let exponent = passingNums[i]
+  //let base = 3
+  //numsToThePower.push(Math.pow(base, exponent))
   //}
   //return numsToThePower
 };
@@ -91,7 +92,7 @@ let starWarsData = [{
   skin_color: 'gold',
   eye_color: 'yellow',
   birth_year: '112BBY',
-  gender: 'n/a'
+  gender: 'n/a',
 },
 {
   name: 'R2-D2',
@@ -101,7 +102,7 @@ let starWarsData = [{
   skin_color: 'white, blue',
   eye_color: 'red',
   birth_year: '33BBY',
-  gender: 'n/a'
+  gender: 'n/a',
 },
 {
   name: 'Darth Vader',
@@ -111,7 +112,7 @@ let starWarsData = [{
   skin_color: 'white',
   eye_color: 'yellow',
   birth_year: '41.9BBY',
-  gender: 'male'
+  gender: 'male',
 },
 {
   name: 'Leia Organa',
@@ -121,18 +122,18 @@ let starWarsData = [{
   skin_color: 'light',
   eye_color: 'brown',
   birth_year: '19BBY',
-  gender: 'female'
-}]
+  gender: 'female',
+}];
 
 let findMaleAndFemale = (data) => {
   //let newArr = [];
   //arr.filter((value) => {
-    //if (value.gender === 'female' | value.gender ==='male){
-      //newArr.push(value.gender.data);
-    //}
+  //if (value.gender === 'female' | value.gender ==='male){
+  //newArr.push(value.gender.data);
+  //}
   //})
   //return newArr;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -142,7 +143,7 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   //
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -164,12 +165,12 @@ describe('Testing challenge 1', () => {
   test('It should work on empty arrays', () => {
     expect(count(5, [[1, 3, 5, 7, 9], [], [5, 5, 5], [1, 2, 3], []])).toStrictEqual(4);
     expect(count(5, [])).toStrictEqual(0);
-  })
+  });
 });
 
 describe('Testing challenge 2', () => {
   test('It should add all the numbers in the arrays', () => {
-    const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
+    const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6]];
 
     expect(totalSum(nums)).toStrictEqual(66);
   });
