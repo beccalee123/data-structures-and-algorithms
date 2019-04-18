@@ -9,7 +9,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  let resultArr = []
+  let resultArr = [];
   for(let i = 0; i < arr.length; i++){
     resultArr.push(arr[i].charAt(0));
   }
@@ -29,7 +29,7 @@ const findHappiness = (arr) => {
   for (let i = 0; i < arr.length; i++){
     if(arr[i].includes(':)')){
       resultArr.push(arr[i]);
-    };
+    }
   }
   return resultArr;
 };
@@ -45,8 +45,10 @@ For example, (123) 456-7890 returns 1234567890
 const standardizePhoneNumbers = (arr) => {
   let newArr = [];
   let regex = /\D/g;
-  let modArray = arr.toString();
-  newArr.push(modArray.replace(regex, ''));
+  for(let i = 0; i < arr.length; i++){
+    let newNums = arr[i].replace(regex, '');
+    newArr.push(newNums);
+  }
   return newArr;
 };
 
@@ -59,14 +61,13 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  let newArr = str.split();
-  let resultsArr = []
-  for(var i = 1; i < str.length; i += 2) {  
-    resultsArr.push(str[i]);
+  let newArr = str.split('');
+  let resultsArr = [];
+  for(var i = 1; i < newArr.length; i += 2) {  
+    resultsArr.push(newArr[i]);
   }
   let newString = resultsArr.join('');
   return newString;
-  return resultsArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,12 +77,19 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
+  let result = [];
   for(let i = 0; i < arr.length; i++){
-    if (arr.includes(':)')){
-      return true;
-    } else if(!arr.includes(':)')){
-      return false;
+    if (arr[i].includes(':)')){
+      result.push(true);
+    } else{
+      result.push(false);
     }
+  }
+  if(result.includes(false)){
+    return false;
+  }
+  else {
+    return true;
   }
 };
 
@@ -96,7 +104,7 @@ const findAnything = (arr, target) => {
   for (let i = 0; i < arr.length; i++){
     if(arr[i].includes(target)){
       resultArr.push(arr[i]);
-    };
+    }
   }
   return resultArr;
 };
@@ -108,7 +116,12 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++){
+    if (!arr[i].includes(target)){
+      return false;
+    }
+  }
+  return true;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,7 +137,18 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 ------------------------------------------------------------------------------------------------ */
 
 const unenrollBrook = (arr) => {
-  // Solution code here...
+  let tempArr = [];
+  let result = [];
+  for(let i = 0; i < arr.length; i++){
+    for(let j = 0; j < arr[i].length; j++){
+      if(!arr[i][j].includes('Brook')){
+        tempArr.push(arr[i][j]);
+      }
+    }
+    result.push(tempArr);
+    tempArr = [];
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,10 +172,41 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 ]
 ------------------------------------------------------------------------------------------------ */
 
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
 const sortByDay = (arr) => {
-  // Solution code here...
+  let resultsArr = [];
+  let mon = [];
+  let tue = [];
+  let wed = [];
+  let thu = [];
+  let fri = [];
+  let sat = [];
+  let sun = [];
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].includes('Monday')){
+      mon.push(arr[i]);
+    }
+    if(arr[i].includes('Tuesday')){
+      tue.push(arr[i]);
+    }
+    if(arr[i].includes('Wednesday')){
+      wed.push(arr[i]);
+    }
+    if(arr[i].includes('Thursday')){
+      thu.push(arr[i]);
+    }
+    if(arr[i].includes('Friday')){
+      fri.push(arr[i]);
+    }
+    if(arr[i].includes('Saturday')){
+      sat.push(arr[i]);
+    }
+    if(arr[i].includes('Sunday')){
+      sun.push(arr[i]);
+    }
+  }
+  resultsArr.push(mon, tue, wed, thu, fri, sat, sun);
+
+  return resultsArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -163,7 +218,11 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
 const characterByIndex = (arr) => {
-  // Solution code here...
+  let result = [];
+  for(let i = 0; i < arr.length; i++){
+    result.push(arr[i][i]);
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -250,13 +309,13 @@ describe('Testing challenge 8', () => {
     const roster = [
       ['Michelle', 'Allie', 'Brook TESTING'],
       ['Brook Riggio', 'hey look it\'s Brook', 'Jennifer'],
-      ['Nicholas', 'Sam', 'Scott', 'Vinicio']
+      ['Nicholas', 'Sam', 'Scott', 'Vinicio'],
     ];
 
     expect(unenrollBrook(roster)).toStrictEqual([
       ['Michelle', 'Allie'],
       ['Jennifer'],
-      ['Nicholas', 'Sam', 'Scott', 'Vinicio']
+      ['Nicholas', 'Sam', 'Scott', 'Vinicio'],
     ]);
     expect(unenrollBrook([['Brook', 'person'], [], ['person', 'person', 'Brook']])).toStrictEqual([['person'], [], ['person', 'person']]);
     expect(unenrollBrook([])).toStrictEqual([]);
