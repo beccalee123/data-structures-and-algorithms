@@ -10,10 +10,9 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   let newArr = [];
-  let regex = /[[:lower:]]/g;
   for(let i = 0; i < arr.length; i++){
-    newArr.push(arr[i][0].toUpperCase(regex));
-    }
+    newArr.push(arr[i].charAt(0).toUpperCase() + arr[i].slice(1));
+  }
   return newArr;
 };
 
@@ -45,7 +44,7 @@ let starWarsData = [{
   skin_color: 'gold',
   eye_color: 'yellow',
   birth_year: '112BBY',
-  gender: 'n/a'
+  gender: 'n/a',
 },
 {
   name: 'R2-D2',
@@ -55,7 +54,7 @@ let starWarsData = [{
   skin_color: 'white, blue',
   eye_color: 'red',
   birth_year: '33BBY',
-  gender: 'n/a'
+  gender: 'n/a',
 },
 {
   name: 'Darth Vader',
@@ -65,7 +64,7 @@ let starWarsData = [{
   skin_color: 'white',
   eye_color: 'yellow',
   birth_year: '41.9BBY',
-  gender: 'male'
+  gender: 'male',
 },
 {
   name: 'Leia Organa',
@@ -75,7 +74,7 @@ let starWarsData = [{
   skin_color: 'light',
   eye_color: 'brown',
   birth_year: '19BBY',
-  gender: 'female'
+  gender: 'female',
 },
 {
   name: 'Pex Kylar',
@@ -85,8 +84,8 @@ let starWarsData = [{
   skin_color: 'brown',
   eye_color: 'none',
   birth_year: '27BBY',
-  gender: 'n/a'
-}]
+  gender: 'n/a',
+}];
 
 let biggerThanLuke = (arr) => {
   let newArr = [];
@@ -99,7 +98,7 @@ let biggerThanLuke = (arr) => {
   let string = newArr.join(' - ');
 
   return string;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -117,13 +116,24 @@ This data could be could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   return arr.sort((a, b) => {
-    if (a.name < b.name) {
-      return -1;
+    if(property === 'name'){
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
     }
-    if (a.name > b.name) {
-      return 1;
+    else if(property === 'price'){
+      if (a.price < b.price) {
+        return -1;
+      }
+      if (a.price > b.price) {
+        return 1;
+      }
+      return 0;
     }
-    return 0;
   });
 };
 
@@ -142,7 +152,7 @@ https:/missingslash.org returns false because the URL is malformed
 const isSecure = (url) => {
   let regex = /^(https:\/\/)\w+.(.com$|.net$|.org$)/g;
   return regex.test(url);
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -165,7 +175,7 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -200,7 +210,7 @@ describe('Testing challenge 3', () => {
     expect(sortBy('price', [
       {name: 'Sweatshirt', price: 45},
       {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
+      {name: 'Tote bag', price: 15},
     ])).toStrictEqual([
       {name: 'Bookmark', price: 2.50},
       {name: 'Tote bag', price: 15},
@@ -214,7 +224,7 @@ describe('Testing challenge 3', () => {
     expect(sortBy('name', [
       {name: 'Sweatshirt', price: 45},
       {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
+      {name: 'Tote bag', price: 15},
     ])).toStrictEqual([
       {name: 'Bookmark', price: 2.50},
       {name: 'Sweatshirt', price: 45},
