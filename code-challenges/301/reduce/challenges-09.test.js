@@ -161,7 +161,13 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  
+  let avg =  arr.reduce((acc, val) => {
+    acc.sum = acc.sum + val;
+    acc.count++;
+    return acc;
+  }, {count: 0, sum: 0});
+  let result = avg.sum /avg.count;
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -182,7 +188,13 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  let result = arr.reduce((acc, val) => {
+    if(isPrime(val)){
+      acc++;
+    }
+    return acc;
+  }, 0);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -225,7 +237,14 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  let result = arr.reduce((acc, val) => {
+    if (val.stat.name === statName) {
+      acc = val;
+    }
+    return acc;
+  }, null);
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -239,7 +258,15 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  let aChars = arr.filter((character) => character.name.includes('a'));
+  console.log(aChars);
+  let result = aChars.reduce((acc, val) => {
+    if (val.children){
+      acc = [...acc, ...val.children];
+    }
+    return acc;
+  }, []);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
