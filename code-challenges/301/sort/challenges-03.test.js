@@ -104,10 +104,16 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  arr.sort((a, b) => {
-    return a.lastName > b.lastName;
+  return arr.sort((a, b) => {
+    
+    if (a.lastName < b.lastName) {
+      return -1;
+    }
+    if (a.lastName > b.lastName) {
+      return 1;
+    }
+    return 0;
   });
-  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,7 +124,31 @@ const sortPeople = (arr) => {
   ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a.lastName < b.lastName) {
+      return -1;
+    }
+    if (a.lastName > b.lastName) {
+      return 1;
+    }
+    if (a.lastName === b.lastName){
+      if (a.firstName < b.firstName) {
+        return -1;
+      }
+      if (a.firstName > b.firstName) {
+        return 1;
+      }
+      if (a.lastName === b.lastName && a.firstName === b.firstName){
+        if (a.age < b.age) {
+          return -1;
+        }
+        if (a.age > b.age) {
+          return 1;
+        }
+        return 0;
+      }
+    }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -142,7 +172,7 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
