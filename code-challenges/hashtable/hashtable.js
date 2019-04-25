@@ -12,6 +12,7 @@ class Hashtable {
   // convert to hash number
   hash(key){
     let chars = key.split('');
+    console.log(chars);
     let aggVal = chars.reduce((acc, val) => acc + val.charCodeAt(0), 0);
     return aggVal % this.size;
 
@@ -68,11 +69,11 @@ class Hashtable {
 }
 
 
-let myHash = new Hashtable(6);
-myHash.add('Becca', 'Person');
-myHash.add('Buddy', 'Cat');
-myHash.add('Hank', 'Cat');
-myHash.add('Leo', 'Dog');
+// let myHash = new Hashtable(6);
+// myHash.add('Becca', 'Person');
+// myHash.add('Buddy', 'Cat');
+// myHash.add('Hank', 'Cat');
+// myHash.add('Leo', 'Dog');
 
 // console.log(myHash.contains('Becca'));
 
