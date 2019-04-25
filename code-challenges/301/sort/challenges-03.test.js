@@ -157,6 +157,8 @@ Write a function named sortMeetingsByDay that takes in an array of objects, each
 Sort the meetings by the day on which they happen, Monday-Friday. It does not matter which order meetings come in on a particular day. For example, if there are two meetings on Monday, it does not matter which comes first.
 ------------------------------------------------------------------------------------------------ */
 
+let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
 function Meeting(dayOfWeek, start, end) {
   this.dayOfWeek = dayOfWeek;
   this.start = start;
@@ -172,7 +174,15 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-
+  return arr.sort((a, b) => {
+    if (days.indexOf(a.dayOfWeek) < days.indexOf(b.dayOfWeek)) {
+      return -1;
+    }
+    if (days.indexOf(a.dayOfWeek) > days.indexOf(b.dayOfWeek)) {
+      return 1;
+    }
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -183,7 +193,26 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+  let daysArr = arr.sort((a, b) => {
+    if (days.indexOf(a.dayOfWeek) < days.indexOf(b.dayOfWeek)) {
+      return -1;
+    }
+    if (days.indexOf(a.dayOfWeek) > days.indexOf(b.dayOfWeek)) {
+      return 1;
+    }
+    return 0;
+  });
+
+  console.log(daysArr);
+  return arr.sort((a, b) => {
+    if (a.dayOfWeek === b.dayOfWeek && (a.end - a.start) < (b.end - b.start)) {
+      return -1;
+    }
+    if (a.dayOfWeek === b.dayOfWeek && (a.end - a.start) > (b.end - b.start)) {
+      return 1;
+    }
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------

@@ -174,7 +174,22 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  for(let i = 0; i < board.length; i++){
+    for(let j = 0; j < board.length; j++){
+      if(board[i][j] === board[i][j+1] && board[i][j+1] === board[i][j+2] && board[i][j] !== ''){
+        return true;
+      }
+      if(board[i][j] === board[i+1][j] && board[i+1][j] === board[i+2][j] && board[i][j] !== ''){
+        return true;
+      }
+      if(board[i][j] === board[i+1][j+1] && board[i+1][j+1] === board[i+2][j+2] && board[i][j] !== ''){
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
