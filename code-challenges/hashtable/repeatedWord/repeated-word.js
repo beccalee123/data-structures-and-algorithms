@@ -7,7 +7,7 @@ function repeatedWord(string){
   let holder = new Hashtable(50);
   for(let i = 0; i < arr.length; i ++){
     if(holder.contains(arr[i])){
-      return arr[i+1];
+      return arr[i];
     } else {
       holder.add(arr[i]);
     }
