@@ -60,7 +60,17 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  let allNums = input.filter(item => item % 5 !== 0);
+  let allNums = [];
+  for(let i = 0; i < input.length; i++){
+    let numArrs = [];
+    for(let j = 0; j < input[i].length; j++){
+      if(typeof input[i][j] === 'number' && input[i][j] % 5 === 0){
+        numArrs.push(Math.pow(2, input[i][j]));
+      }
+    }
+    allNums.push(numArrs);
+  }
+  return allNums;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -141,7 +151,13 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-
+  let shortest = {height: '1000'};
+  for(let i = 0; i < data.length; i++){
+    if(parseInt(data[i].height) < parseInt(shortest.height)){
+      shortest = data[i];
+    }
+  }
+  return shortest.name;
 };
 
 /* ------------------------------------------------------------------------------------------------
