@@ -16,6 +16,7 @@ describe('Merge', () => {
     list2.append(5);
     list2.append(6);
     let result = merge.mergeList(list1, list2);
-    expect(result).toEqual({'head': 1});
+    console.log(result);
+    expect(result.value).toEqual(1);
   });
 });
