@@ -12,15 +12,20 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  return input.reduce((accumulator, value) => {
-    for (let i = 0; i < input.length; i++) {
-      if (value === target) {
-        accumulator++;
-      }
-      return accumulator;
-    } 0;
-  });
+  let result = input.reduce((acc, val) => {
+    acc = acc.concat(val);
+    return acc;
+  }, []).reduce((acc, val) => {
+    if (val === target) {
+      acc++;      
+    }
+    return acc;
+  }, 0);
+
+  return result;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -35,7 +40,9 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 const totalSum = (input) => {
   let newSum = 0;
   for (let i = 0; i < input.length; i++) {
-    newSum + input[i];
+    for(let j = 0; j < input[i].length; j++){
+      newSum += input[i][j];
+    }
   }
   return newSum;
 };
@@ -53,14 +60,17 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  //let passingNums = input.filter(nums => num % 5);
-  //let numsToThePower = []
-  //for (let i = 0; i < passingNums.length; i++);
-  //let exponent = passingNums[i]
-  //let base = 3
-  //numsToThePower.push(Math.pow(base, exponent))
-  //}
-  //return numsToThePower
+  let allNums = [];
+  for(let i = 0; i < input.length; i++){
+    let numArrs = [];
+    for(let j = 0; j < input[i].length; j++){
+      if(typeof input[i][j] === 'number' && input[i][j] % 5 === 0){
+        numArrs.push(Math.pow(2, input[i][j]));
+      }
+    }
+    allNums.push(numArrs);
+  }
+  return allNums;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,13 +136,12 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  //let newArr = [];
-  //arr.filter((value) => {
-  //if (value.gender === 'female' | value.gender ==='male){
-  //newArr.push(value.gender.data);
-  //}
-  //})
-  //return newArr;
+  let newArr = data.filter((value) => value.gender === 'female' || value.gender === 'male');
+  let names = [];
+  for(let i = 0; i < newArr.length; i++){
+    names.push(newArr[i].name);
+  }
+  return names.join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -142,7 +151,13 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  //
+  let shortest = {height: '1000'};
+  for(let i = 0; i < data.length; i++){
+    if(parseInt(data[i].height) < parseInt(shortest.height)){
+      shortest = data[i];
+    }
+  }
+  return shortest.name;
 };
 
 /* ------------------------------------------------------------------------------------------------
